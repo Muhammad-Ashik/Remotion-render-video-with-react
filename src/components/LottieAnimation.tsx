@@ -5,20 +5,21 @@ import { useCurrentFrame } from 'remotion';
 
 import animationData from '../lotties/doctorLab.json';
 
-export default function App(Props: { play: boolean }) {
+export default function App(Props: { play: boolean; animeObj: any }) {
   const frame = useCurrentFrame();
 
   return (
     <animated.div>
       <Lottie
-        animationData={animationData}
-        play={frame > 10 && frame < 90 ? true : false}
+        animationData={Props.animeObj || animationData}
+        // play={frame > 10 && frame < 90 ? true : false}
+        play={true}
         style={{
-          width: 300,
-          height: 300,
+          width: 250,
+          height: 200,
           position: 'absolute',
-          bottom: -20,
-          left: 20,
+          bottom: 30,
+          left: 40,
         }}
       />
     </animated.div>
